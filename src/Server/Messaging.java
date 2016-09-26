@@ -9,9 +9,14 @@ package Server;
  *
  * @author mauri
  */
-public interface LoginInt {
+public interface Messaging {
   
-  public abstract int Login();
+  public abstract void send(String msg);
   
+  public abstract void printMsg();
+  
+  public abstract Usuario userConnect();
+  
+  public abstract void userDisconect();
   
 }

@@ -238,7 +238,7 @@ public class LoginGUI extends javax.swing.JFrame {
 
   private void peekBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_peekBtnMousePressed
     peekBtn.setIcon(new javax.swing.ImageIcon(getClass()
-      .getResource("/ic_remove_red_eye_gray_24dp_1x.png")));
+      .getResource("/ic_remove_red_eye_black_24dp_1x.png")));
   if (txtPass.getForeground() != Color.gray) {
     txtPass.setEchoChar((char) 0);
     }
