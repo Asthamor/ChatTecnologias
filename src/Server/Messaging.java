@@ -5,18 +5,20 @@
  */
 package Server;
 
+import java.rmi.RemoteException;
+
 /**
  *
  * @author mauri
  */
 public interface Messaging {
   
-  public abstract void send(String msg);
+  public abstract void send(String msg) throws RemoteException;
   
-  public abstract void printMsg();
+  public abstract void printMsg() throws RemoteException;
   
-  public abstract Usuario userConnect();
+  public abstract Usuario userConnect() throws RemoteException;
   
-  public abstract void userDisconect();
+  public abstract void userDisconect() throws RemoteException;
   
 }

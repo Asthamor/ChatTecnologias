@@ -5,13 +5,21 @@
  */
 package Server;
 
+import java.io.UnsupportedEncodingException;
+import java.rmi.RemoteException;
+import java.security.NoSuchAlgorithmException;
+
 /**
  *
  * @author mauri
  */
 public interface LoginInt {
   
-  public abstract int Login();
+  public abstract int Login(String user, String pass) 
+      throws RemoteException;
   
+  public abstract String parsePass(String pass) 
+      throws NoSuchAlgorithmException, UnsupportedEncodingException, 
+      RemoteException;
   
 }

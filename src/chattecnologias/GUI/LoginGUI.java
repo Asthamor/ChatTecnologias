@@ -25,7 +25,7 @@ public class LoginGUI extends javax.swing.JFrame {
   private void Ingresar(char pass[]){  
     String password = new String(pass);
    
-    switch ()) {
+    switch (Login){
     case 1:
       
       break;
