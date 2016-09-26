@@ -11,6 +11,6 @@ package Server;
  */
 public interface LoginInt {
   
-  public abtract int ()
+  public abtract int Login()
   
 }
