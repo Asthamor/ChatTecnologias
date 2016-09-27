@@ -23,4 +23,9 @@ public interface LoginInt extends Remote{
       throws NoSuchAlgorithmException, UnsupportedEncodingException, 
       RemoteException;
   
+  public abstract void userConnect(Usuario user) throws RemoteException;
+  
+  public abstract void userDisconect(Usuario user) throws RemoteException;
+  
+  
 }

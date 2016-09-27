@@ -17,9 +17,6 @@ public interface Messaging extends Remote{
   public abstract void send(String msg) throws RemoteException;
   
   public abstract void printMsg() throws RemoteException;
-  
-  public abstract Usuario userConnect() throws RemoteException;
-  
-  public abstract void userDisconect() throws RemoteException;
+ 
   
 }

@@ -5,7 +5,6 @@
  */
 package chattecnologias.GUI;
 
-import Server.ChatTecServ;
 import Server.Usuario;
 import static chattecnologias.ChatTecnologias.loginStub;
 import java.awt.Color;
@@ -30,10 +29,12 @@ public class LoginGUI extends javax.swing.JFrame {
   
   private void Ingresar(char pass[]) throws RemoteException{  
     String password = new String(pass);
+    Usuario user = new Usuario(txtUsuario.getText(), password);
     
    
-    switch (loginStub.login(new Usuario(txtUsuario.getText(), password))){
+    switch (loginStub.login(user)){
     case 1:
+      loginStub.userConnect(user);
       java.awt.EventQueue.invokeLater(() -> {
         new ChatGUI().setVisible(true);
     });
@@ -199,6 +200,7 @@ public class LoginGUI extends javax.swing.JFrame {
     btnIngresar.requestFocus();
 
     pack();
+    setLocationRelativeTo(null);
   }// </editor-fold>//GEN-END:initComponents
 
   private void txtUsuarioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUsuarioFocusGained
@@ -295,7 +297,7 @@ public class LoginGUI extends javax.swing.JFrame {
      */
     try {
       for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-        if ("Nimbus".equals(info.getName())) {
+        if ("Windows".equals(info.getName())) {
           javax.swing.UIManager.setLookAndFeel(info.getClassName());
           break;
         }

@@ -7,8 +7,6 @@ import java.math.BigInteger;
 import java.net.MalformedURLException;
 import java.rmi.AlreadyBoundException;
 import java.rmi.RemoteException;
-import java.rmi.registry.LocateRegistry;
-import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 import java.rmi.Naming;
 import java.security.MessageDigest;
@@ -17,7 +15,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import chattecnologias.GUI.ChatGUI;
+import javax.xml.bind.Marshaller.Listener;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -34,9 +35,12 @@ public class ChatTecServ
 
   private static Messaging messagingStub;
   private static LoginInt loginStub;
+  private ArrayList<Usuario> usuarios;
   
   public ChatTecServ()
-      throws RemoteException{}
+      throws RemoteException{
+    usuarios = new ArrayList();
+  }
 
   /**
    * @param args the command line arguments
@@ -54,9 +58,9 @@ public class ChatTecServ
   }
 
   @Override
-  public void send(String msg) {
-    throw new UnsupportedOperationException("Not supported yet."); 
-//To change body of generated methods, choose Tools | Templates.
+  public void send(String msg) throws RemoteException {
+    
+    
   }
 
   @Override
@@ -66,13 +70,15 @@ public class ChatTecServ
   }
 
   @Override
-  public Usuario userConnect() {
-    throw new UnsupportedOperationException("Not supported yet."); 
-//To change body of generated methods, choose Tools | Templates.
+  public void userConnect(Usuario user) throws RemoteException {
+    usuarios.add(user);
+    updateUserList();
+    
   }
+  
 
   @Override
-  public void userDisconect() {
+  public void userDisconect(Usuario user) {
     throw new UnsupportedOperationException("Not supported yet."); 
 //To change body of generated methods, choose Tools | Templates.
   }
@@ -132,5 +138,7 @@ public class ChatTecServ
     String hashTxt = bigInt.toString(16);
     return hashTxt;
   }
-
+  private void updateUserList(){
+    
+  }
 }

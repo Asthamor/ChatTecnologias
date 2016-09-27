@@ -12,9 +12,7 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
-import Server.Usuario;
 import java.net.MalformedURLException;
-import java.rmi.Naming;
 
 /**
  *
@@ -26,6 +24,9 @@ public class ChatTecnologias {
 
   /**
    * @param args the command line arguments
+   * @throws java.rmi.RemoteException
+   * @throws java.rmi.NotBoundException
+   * @throws java.net.MalformedURLException
    */
   public static void main(String[] args) 
       throws RemoteException, NotBoundException, MalformedURLException {
