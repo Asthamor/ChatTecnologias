@@ -34,7 +34,10 @@ public class LoginGUI extends javax.swing.JFrame {
    
     switch (loginStub.login(new Usuario(txtUsuario.getText(), password))){
     case 1:
-      
+      java.awt.EventQueue.invokeLater(() -> {
+        new ChatGUI().setVisible(true);
+    });
+      this.dispose();
       break;
     case 0:
       JOptionPane.showMessageDialog(null,

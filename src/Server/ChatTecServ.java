@@ -86,7 +86,8 @@ public class ChatTecServ
       ResultSet rs;
       con = Conexion.getConnection();
       if (con != null) {
-        String selectSQL = "SELECT nombre, password, tipo FROM "
+        System.out.println("Conexión establecida");
+        String selectSQL = "SELECT nombre, password FROM "
             + "usuario WHERE nombre = ?";
 
         ps = con.prepareStatement(selectSQL);
@@ -94,7 +95,9 @@ public class ChatTecServ
         rs = ps.executeQuery();
         if (rs.next()) {
           user.setContraseña(parsePass(user.getContraseña()));
+          System.out.println(user.getContraseña());
           String password = rs.getString("password");
+          System.out.println(password);
           if (password.equals(user.getContraseña())) {
             success = 1;
           }

@@ -18,8 +18,7 @@ public class Conexion {
   /**
    * String de conexión a la BD
    */
-  public static final String URL = "jdbc:mysql://localhost:8889/chattec";
-
+  public static final String URL = "jdbc:mysql://127.0.0.1:8889/chattec";
   /**
    * Nombre de usuario para la conexión a BD
    */
@@ -52,7 +51,8 @@ public class Conexion {
   public static void cerrarConexion(Connection con) {
     try {
       con.close();
-    } catch (SQLException e) {
+    } catch (SQLException | NullPointerException e) {
+      System.out.println(e.getMessage());
     }
   }
 }
