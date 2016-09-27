@@ -9,6 +9,7 @@ import java.io.UnsupportedEncodingException;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.security.NoSuchAlgorithmException;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -27,6 +28,6 @@ public interface LoginInt extends Remote{
   
   public abstract void userDisconect(Usuario user) throws RemoteException;
   
-  public abstract void updateUserList() throws RemoteException;
+  public abstract DefaultTableModel updateUserList() throws RemoteException;
   
 }

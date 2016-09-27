@@ -18,6 +18,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import chattecnologias.GUI.ChatGUI;
+import javax.swing.table.DefaultTableModel;
 import javax.xml.bind.Marshaller.Listener;
 
 /*
@@ -140,13 +141,14 @@ public class ChatTecServ
   
   
   @Override
-  public void updateUserList(){
+  public DefaultTableModel updateUserList(){
+    DefaultTableModel model = 
+        new DefaultTableModel(new Object[][]{}, new String[]{"Usuarios"});
     for (Usuario user: usuarios){
       String nombre = user.getNombre();
-      System.out.println(nombre);
       Object[] dato = {nombre};
-      ChatGUI.model.addRow(dato);
+      model.addRow(dato);
     }
-    ChatGUI.model.fireTableDataChanged();
+    return model;
   }
 }

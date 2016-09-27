@@ -36,7 +36,11 @@ public class LoginGUI extends javax.swing.JFrame {
     case 1:
       loginStub.userConnect(user);
       java.awt.EventQueue.invokeLater(() -> {
+      try {
         new ChatGUI().setVisible(true);
+      } catch (RemoteException ex) {
+        Logger.getLogger(LoginGUI.class.getName()).log(Level.SEVERE, null, ex);
+      }
     });
       loginStub.updateUserList();
       this.dispose();

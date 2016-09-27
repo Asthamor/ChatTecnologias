@@ -8,6 +8,10 @@ package chattecnologias.GUI;
 import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableModel;
 import static chattecnologias.ChatTecnologias.messagingStub;
+import static chattecnologias.ChatTecnologias.loginStub;
+import java.rmi.RemoteException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -20,12 +24,14 @@ public class ChatGUI extends javax.swing.JFrame {
     /**
      * Creates new form ChatGUI
      */
-    public ChatGUI() {
+    public ChatGUI() throws RemoteException {
         super("Chat");
         
         initComponents();
         JScrollPane scrollPane = new JScrollPane(areaTextoChat);
         areaTextoChat.setEditable(false);
+        model = loginStub.updateUserList();
+        model.fireTableDataChanged();
         
     }
 
@@ -148,7 +154,11 @@ public class ChatGUI extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+              try {
                 new ChatGUI().setVisible(true);
+              } catch (RemoteException ex) {
+                Logger.getLogger(ChatGUI.class.getName()).log(Level.SEVERE, null, ex);
+              }
             }
         });
     }
