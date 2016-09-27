@@ -7,6 +7,7 @@ package chattecnologias.GUI;
 
 import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableModel;
+import static chattecnologias.ChatTecnologias.messagingStub;
 
 /**
  *
@@ -14,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ChatGUI extends javax.swing.JFrame {
 
-    private final DefaultTableModel model = new DefaultTableModel
+    public static DefaultTableModel model = new DefaultTableModel
       (new Object[][]{}, new String[]{"Usuarios"});
     /**
      * Creates new form ChatGUI
@@ -25,6 +26,7 @@ public class ChatGUI extends javax.swing.JFrame {
         initComponents();
         JScrollPane scrollPane = new JScrollPane(areaTextoChat);
         areaTextoChat.setEditable(false);
+        
     }
 
     public String[] getColumnasUsuarios(){

@@ -38,6 +38,7 @@ public class LoginGUI extends javax.swing.JFrame {
       java.awt.EventQueue.invokeLater(() -> {
         new ChatGUI().setVisible(true);
     });
+      loginStub.updateUserList();
       this.dispose();
       break;
     case 0:

@@ -73,7 +73,6 @@ public class ChatTecServ
   public void userConnect(Usuario user) throws RemoteException {
     usuarios.add(user);
     updateUserList();
-    
   }
   
 
@@ -138,7 +137,16 @@ public class ChatTecServ
     String hashTxt = bigInt.toString(16);
     return hashTxt;
   }
-  private void updateUserList(){
-    
+  
+  
+  @Override
+  public void updateUserList(){
+    for (Usuario user: usuarios){
+      String nombre = user.getNombre();
+      System.out.println(nombre);
+      Object[] dato = {nombre};
+      ChatGUI.model.addRow(dato);
+    }
+    ChatGUI.model.fireTableDataChanged();
   }
 }

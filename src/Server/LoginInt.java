@@ -27,5 +27,6 @@ public interface LoginInt extends Remote{
   
   public abstract void userDisconect(Usuario user) throws RemoteException;
   
+  public abstract void updateUserList() throws RemoteException;
   
 }
