@@ -5,6 +5,7 @@
  */
 package chattecnologias.GUI;
 
+import chattecnologias.Usuario;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
@@ -24,8 +25,9 @@ public class LoginGUI extends javax.swing.JFrame {
   
   private void Ingresar(char pass[]){  
     String password = new String(pass);
+    
    
-    switch (Login){
+    switch (1){
     case 1:
       
       break;
@@ -64,6 +66,12 @@ public class LoginGUI extends javax.swing.JFrame {
     lblError = new javax.swing.JLabel();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+    setTitle("Login");
+    setBackground(new java.awt.Color(255, 255, 255));
+    setLocationByPlatform(true);
+    setMaximumSize(new java.awt.Dimension(312, 132));
+    setMinimumSize(new java.awt.Dimension(312, 132));
+    setResizable(false);
 
     txtUsuario.setForeground(new java.awt.Color(102, 102, 102));
     txtUsuario.setText("Usuario");
@@ -137,7 +145,7 @@ public class LoginGUI extends javax.swing.JFrame {
       }
     });
 
-    lblError.setFont(new java.awt.Font("Apple SD Gothic Neo", 1, 13)); // NOI18N
+    lblError.setFont(new java.awt.Font("Apple SD Gothic Neo", 1, 10)); // NOI18N
     lblError.setForeground(new java.awt.Color(255, 0, 0));
     lblError.setText("Usuario y/o contraseña incorrectos");
     lblError.setVisible(false);
@@ -173,10 +181,10 @@ public class LoginGUI extends javax.swing.JFrame {
           .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
           .addComponent(peekBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-          .addComponent(lblError, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-          .addComponent(btnIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+          .addComponent(btnIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(lblError, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        .addContainerGap(15, Short.MAX_VALUE))
     );
 
     //txtUsuario.requestFocus();
@@ -203,10 +211,13 @@ public class LoginGUI extends javax.swing.JFrame {
     // TODO add your handling code here:
   }//GEN-LAST:event_txtUsuarioActionPerformed
 
+  
   private void txtUsuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyPressed
     if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
       btnIngresar.doClick();
+    }
   }//GEN-LAST:event_txtUsuarioKeyPressed
+
 
   private void txtPassFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPassFocusGained
     char c[] = txtPass.getPassword();
@@ -234,21 +245,18 @@ public class LoginGUI extends javax.swing.JFrame {
   private void txtPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPassKeyPressed
     if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
       btnIngresar.doClick();
+    }
   }//GEN-LAST:event_txtPassKeyPressed
 
   private void peekBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_peekBtnMousePressed
-    peekBtn.setIcon(new javax.swing.ImageIcon(getClass()
-      .getResource("/ic_remove_red_eye_black_24dp_1x.png")));
-  if (txtPass.getForeground() != Color.gray) {
-    txtPass.setEchoChar((char) 0);
+    if (txtPass.getForeground() != Color.gray) {
+      txtPass.setEchoChar((char) 0);
     }
   }//GEN-LAST:event_peekBtnMousePressed
 
   private void peekBtnMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_peekBtnMouseReleased
-    peekBtn.setIcon(new javax.swing.ImageIcon(getClass()
-      .getResource("/ic_remove_red_eye_black_24dp_1x.png")));
-  if (txtPass.getForeground() != Color.gray) {
-    txtPass.setEchoChar('*');
+    if (txtPass.getForeground() != Color.gray) {
+      txtPass.setEchoChar('*');
     }
   }//GEN-LAST:event_peekBtnMouseReleased
 
