@@ -18,7 +18,7 @@ public class Conexion {
   /**
    * String de conexión a la BD
    */
-  public static final String URL = "jdbc:mysql://localhost:8889/ChatTec";
+  public static final String URL = "jdbc:mysql://localhost:8889/chattec";
 
   /**
    * Nombre de usuario para la conexión a BD

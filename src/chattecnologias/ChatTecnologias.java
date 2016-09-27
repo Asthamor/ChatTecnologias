@@ -6,27 +6,34 @@
 package chattecnologias;
 
 import Server.LoginInt;
+import Server.Messaging;
 import chattecnologias.GUI.LoginGUI;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+import Server.Usuario;
+import java.net.MalformedURLException;
+import java.rmi.Naming;
 
 /**
  *
  * @author mauricio
  */
 public class ChatTecnologias {
+  public static LoginInt loginStub;
+  public static Messaging messagingStub;
 
   /**
    * @param args the command line arguments
    */
   public static void main(String[] args) 
-      throws RemoteException, NotBoundException {
+      throws RemoteException, NotBoundException, MalformedURLException {
     
     String host = (args.length < 1) ? null : args[0];
-    //Registry registro = LocateRegistry.getRegistry(host);
-    //LoginInt loginstub = (LoginInt) registro.lookup("ServidorLogin");
+    Registry registro = LocateRegistry.getRegistry(host);
+    loginStub = (LoginInt) registro.lookup("ServidorChat");
+    
    
     java.awt.EventQueue.invokeLater(new Runnable() {
       public void run() {

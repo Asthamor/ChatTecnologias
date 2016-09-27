@@ -5,9 +5,14 @@
  */
 package chattecnologias.GUI;
 
-import chattecnologias.Usuario;
+import Server.ChatTecServ;
+import Server.Usuario;
+import static chattecnologias.ChatTecnologias.loginStub;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
+import java.rmi.RemoteException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -23,11 +28,11 @@ public class LoginGUI extends javax.swing.JFrame {
     initComponents();
   }
   
-  private void Ingresar(char pass[]){  
+  private void Ingresar(char pass[]) throws RemoteException{  
     String password = new String(pass);
     
    
-    switch (1){
+    switch (loginStub.login(new Usuario(txtUsuario.getText(), password))){
     case 1:
       
       break;
@@ -265,7 +270,11 @@ public class LoginGUI extends javax.swing.JFrame {
   }//GEN-LAST:event_peekBtnActionPerformed
 
   private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
-    Ingresar(txtPass.getPassword());
+    try {
+      Ingresar(txtPass.getPassword());
+    } catch (RemoteException ex) {
+      Logger.getLogger(LoginGUI.class.getName()).log(Level.SEVERE, null, ex);
+    }
   }//GEN-LAST:event_btnIngresarActionPerformed
 
   private void btnIngresarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnIngresarKeyReleased

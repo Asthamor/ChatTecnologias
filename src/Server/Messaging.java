@@ -5,13 +5,14 @@
  */
 package Server;
 
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 
 /**
  *
  * @author mauricio
  */
-public interface Messaging {
+public interface Messaging extends Remote{
   
   public abstract void send(String msg) throws RemoteException;
   

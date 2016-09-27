@@ -6,6 +6,7 @@
 package Server;
 
 import java.io.UnsupportedEncodingException;
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.security.NoSuchAlgorithmException;
 
@@ -13,9 +14,9 @@ import java.security.NoSuchAlgorithmException;
  *
  * @author mauricio
  */
-public interface LoginInt {
+public interface LoginInt extends Remote{
   
-  public abstract int Login(String user, String pass) 
+  public abstract int login(Usuario user) 
       throws RemoteException;
   
   public abstract String parsePass(String pass) 
