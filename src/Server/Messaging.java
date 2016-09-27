@@ -9,7 +9,7 @@ import java.rmi.RemoteException;
 
 /**
  *
- * @author mauri
+ * @author mauricio
  */
 public interface Messaging {
   

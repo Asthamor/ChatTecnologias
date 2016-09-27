@@ -20,7 +20,7 @@ import javax.swing.JOptionPane;
  */
 /**
  *
- * @author mauri
+ * @author mauricio
  */
 public class ChatTecServ implements Messaging, LoginInt {
 

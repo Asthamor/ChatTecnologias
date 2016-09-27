@@ -14,7 +14,7 @@ import java.rmi.registry.Registry;
 
 /**
  *
- * @author mauri
+ * @author mauricio
  */
 public class ChatTecnologias {
 

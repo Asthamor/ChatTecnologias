@@ -11,7 +11,7 @@ import java.security.NoSuchAlgorithmException;
 
 /**
  *
- * @author mauri
+ * @author mauricio
  */
 public interface LoginInt {
   

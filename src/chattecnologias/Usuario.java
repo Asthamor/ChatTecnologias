@@ -5,11 +5,9 @@
  */
 package chattecnologias;
 
-import Server.*;
-
 /**
  *
- * @author mauri
+ * @author mauricio
  */
 public class Usuario {
   private String nombre;

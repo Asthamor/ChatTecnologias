@@ -7,7 +7,7 @@ package Server;
 
 /**
  *
- * @author mauri
+ * @author mauricio
  */
 public class Usuario {
   private String nombre;
