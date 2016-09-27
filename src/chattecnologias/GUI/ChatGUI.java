@@ -7,7 +7,6 @@ package chattecnologias.GUI;
 
 import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableModel;
-import static chattecnologias.ChatTecnologias.messagingStub;
 import static chattecnologias.ChatTecnologias.loginStub;
 import java.rmi.RemoteException;
 import java.util.logging.Level;
@@ -31,8 +30,7 @@ public class ChatGUI extends javax.swing.JFrame {
         JScrollPane scrollPane = new JScrollPane(areaTextoChat);
         areaTextoChat.setEditable(false);
         model = loginStub.updateUserList();
-        model.fireTableDataChanged();
-        
+        tablaUsuariosConectados.setModel(model);
     }
 
     public String[] getColumnasUsuarios(){
@@ -88,13 +86,14 @@ public class ChatGUI extends javax.swing.JFrame {
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
           .addGroup(layout.createSequentialGroup()
             .addGap(18, 18, 18)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-              .addComponent(etiquetaMensje)
-              .addComponent(panelMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 517, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addComponent(etiquetaMensje))
           .addGroup(layout.createSequentialGroup()
             .addContainerGap()
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 517, javax.swing.GroupLayout.PREFERRED_SIZE)))
-        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 517, javax.swing.GroupLayout.PREFERRED_SIZE))
+          .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addContainerGap()
+            .addComponent(panelMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 517, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        .addGap(18, 18, 18)
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
           .addComponent(botonEnviar, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
           .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
@@ -112,7 +111,7 @@ public class ChatGUI extends javax.swing.JFrame {
         .addGap(8, 8, 8)
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
           .addComponent(botonEnviar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-          .addComponent(panelMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
+          .addComponent(panelMensaje, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
         .addGap(22, 22, 22))
     );
 
@@ -170,7 +169,7 @@ public class ChatGUI extends javax.swing.JFrame {
   private javax.swing.JScrollPane jScrollPane1;
   private javax.swing.JScrollPane jScrollPane2;
   private javax.swing.JScrollPane panelMensaje;
-  public static javax.swing.JTable tablaUsuariosConectados;
+  public javax.swing.JTable tablaUsuariosConectados;
   private javax.swing.JTextPane txtMsg;
   // End of variables declaration//GEN-END:variables
 }
